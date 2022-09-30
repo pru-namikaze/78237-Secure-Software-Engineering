@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -49,8 +48,12 @@ public abstract class GenericController<T extends GenericModel<T>, R extends Cru
 
     @GetMapping("/getById.json")
     public ResponseEntity<T> getById(@RequestParam Long id) {
-        return Optional.of(this.repository.findAllById(List.of(id)))
-                .map(Iterable::iterator)
+        return Optional.of(this.getByIds(List.of(id)))
+                .filter(response -> response.getStatusCode().is2xxSuccessful())
+                .filter(ResponseEntity::hasBody)
+                .map(HttpEntity::getBody)
+                .filter(list -> !list.isEmpty())
+                .map(List::iterator)
                 .filter(Iterator::hasNext)
                 .map(Iterator::next)
                 .map(ResponseEntity::ok)
