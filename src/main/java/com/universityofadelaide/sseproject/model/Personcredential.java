@@ -31,13 +31,13 @@ public class Personcredential extends GenericModel<Personcredential> {
 
     @Override
     public Personcredential updateParametersIfPresent(Personcredential dataCell) {
-        if(Objects.isNull(this.getPersonid())){
+        if(Objects.isNull(dataCell.getPersonid())){
             this.setPersonid(dataCell.getPersonid());
         }
-        if(Objects.isNull(this.getPersoncredentialemail())){
+        if(Objects.isNull(dataCell.getPersoncredentialemail())){
             this.setPersoncredentialemail(dataCell.getPersoncredentialemail());
         }
-        if(Objects.isNull(this.getPersoncredentialpassword())){
+        if(Objects.isNull(dataCell.getPersoncredentialpassword())){
             this.setPersoncredentialpassword(dataCell.getPersoncredentialpassword());
         }
 

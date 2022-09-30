@@ -33,16 +33,16 @@ public class Person extends GenericModel<Person> {
 
     @Override
     public Person updateParametersIfPresent(Person dataCell) {
-        if(Objects.isNull(this.getPersonname())){
+        if(Objects.isNull(dataCell.getPersonname())){
             this.setPersonname(dataCell.getPersonname());
         }
-        if(Objects.isNull(this.getPersonlocation())){
+        if(Objects.isNull(dataCell.getPersonlocation())){
             this.setPersonlocation(dataCell.getPersonlocation());
         }
-        if(Objects.isNull(this.getPersongender())){
+        if(Objects.isNull(dataCell.getPersongender())){
             this.setPersongender(dataCell.getPersongender());
         }
-        if(Objects.isNull(this.getPersondateofbirth())){
+        if(Objects.isNull(dataCell.getPersondateofbirth())){
             this.setPersondateofbirth(dataCell.getPersondateofbirth());
         }
 

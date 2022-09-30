@@ -29,7 +29,7 @@ public class Personimage extends GenericModel<Personimage> {
 
     @Override
     public Personimage updateParametersIfPresent(Personimage dataCell) {
-        if(Objects.isNull(this.getPersonid())){
+        if(Objects.isNull(dataCell.getPersonid())){
             this.setPersonid(dataCell.getPersonid());
         }
         if(Objects.isNull(dataCell.getImageurl())){

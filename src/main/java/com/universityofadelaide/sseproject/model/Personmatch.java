@@ -35,19 +35,19 @@ public class Personmatch extends GenericModel<Personmatch> {
 
     @Override
     public Personmatch updateParametersIfPresent(Personmatch dataCell) {
-        if(Objects.isNull(this.getPersonid1())){
+        if(Objects.isNull(dataCell.getPersonid1())){
             this.setPersonid1(dataCell.getPersonid1());
         }
-        if(Objects.isNull(this.getPersonid2())){
+        if(Objects.isNull(dataCell.getPersonid2())){
             this.setPersonid2(dataCell.getPersonid2());
         }
-        if(Objects.isNull(this.getPersonid1like())){
+        if(Objects.isNull(dataCell.getPersonid1like())){
             this.setPersonid1like(dataCell.getPersonid1like());
         }
-        if(Objects.isNull(this.getPersonid2like())){
+        if(Objects.isNull(dataCell.getPersonid2like())){
             this.setPersonid2like(dataCell.getPersonid2like());
         }
-        if(Objects.isNull(this.getChaturl())){
+        if(Objects.isNull(dataCell.getChaturl())){
             this.setChaturl(dataCell.getChaturl());
         }
 

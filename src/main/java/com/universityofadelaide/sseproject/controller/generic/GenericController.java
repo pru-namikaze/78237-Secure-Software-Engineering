@@ -21,7 +21,10 @@ public abstract class GenericController<T extends GenericModel<T>, R extends Cru
 
     @Autowired
     public R repository;
-
+    @GetMapping("/heartBeat")
+    public ResponseEntity<String> heartBeat(){
+        return ResponseEntity.ok("Controller up");
+    }
     public ResponseEntity<T> updateParametersIfPresent(T dataCell) {
         return Optional.of(this.getById(dataCell.getId()))
                 .filter(response -> response.getStatusCode().is2xxSuccessful())
